@@ -9,7 +9,7 @@ type Props = {
   showBackButton?: boolean;
 };
 
-export function Header({ showBackButton = false }: Props) {
+export function Header({ showBackButton = false}: Props) {
   return (
     <Container>
       {showBackButton && (
