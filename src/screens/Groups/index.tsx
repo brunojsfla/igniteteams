@@ -1,5 +1,6 @@
 import * as S from "./styles";
 import { FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
@@ -10,6 +11,12 @@ import { useState } from "react";
 
 export function Groups() {
   const [groups, setGroups] = useState([]);
+
+  const navigation = useNavigation();
+
+  function handleNewGroup() {
+    navigation.navigate("new");
+  }
 
   return (
     <S.Container>
@@ -24,7 +31,7 @@ export function Groups() {
           <ListEmpty text="Nenhuma turma cadastrada!" />
         )}
       />
-      <Button title="Criar nova turma"/>
+      <Button title="Criar nova turma" onPress={handleNewGroup} />
     </S.Container>
   );
 }
